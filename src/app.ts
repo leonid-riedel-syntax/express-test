@@ -1,7 +1,12 @@
 import express from "express";
+import morgan from "morgan";
 import booksRouter from "./books/books.router";
+import { requireApiKey } from "./middleware/requireApiKey";
 
 const app = express();
+
+app.use(morgan("dev"));
+app.use(requireApiKey);
 
 app.get("/", (req, res) => {
     res.send("Hello World");
