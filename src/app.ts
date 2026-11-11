@@ -2,9 +2,16 @@ import express, { NextFunction, Response, Request } from "express";
 import morgan from "morgan";
 import booksRouter from "./books/books.router";
 import { requireApiKey } from "./middleware/requireApiKey";
+import cors from "cors";
 
 const app = express();
 
+const ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "https://mein-frontend.vercel.app"
+]
+
+app.use(cors({ origin: ALLOWED_ORIGINS}));
 app.use(morgan("dev"));
 app.use(requireApiKey);
 
