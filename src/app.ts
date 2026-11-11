@@ -1,8 +1,8 @@
 import express, { NextFunction, Response, Request } from "express";
 import morgan from "morgan";
-import booksRouter from "./books/books.router";
-import { requireApiKey } from "./middleware/requireApiKey";
 import cors from "cors";
+import booksRouter from "./books/books.router.ts";
+import { requireApiKey } from "./middleware/requireApiKey.ts";
 
 const app = express();
 

@@ -1,4 +1,4 @@
-import { BookNotFoundError } from "./books.errors";
+import { BookNotFoundError } from "./books.errors.ts";
 
 interface Book {
     id: number;

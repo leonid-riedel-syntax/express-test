@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { getAllBooks, getBookById } from "./books.service";
+import { getAllBooks, getBookById } from "./books.service.ts";
 
 export async function getAllBooksHandler(req: Request, res: Response, next: NextFunction) {
     try {
