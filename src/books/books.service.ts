@@ -1,3 +1,5 @@
+import { BookNotFoundError } from "./books.errors";
+
 interface Book {
     id: number;
     title: string;
@@ -15,5 +17,7 @@ export async function getAllBooks() {
 }
 
 export async function getBookById(id: number) {
-    return books.find(book => book.id === id) ?? null;
+    const book = books.find(book => book.id === id);
+    if (!book) throw new BookNotFoundError(id);
+    return book;
 }
